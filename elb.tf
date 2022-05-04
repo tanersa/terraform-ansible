@@ -23,10 +23,12 @@ resource "aws_lb" "elb" {
   # instances    = aws_instance.web.*.id
   # idle_timeout = 400
 
+
   tags = {
     Environment = terraform.workspace
   }
 }
+
 # Security group for ALB
 resource "aws_security_group" "elb_sg" {
   name        = "elb_sg"
