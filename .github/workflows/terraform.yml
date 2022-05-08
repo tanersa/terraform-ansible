@@ -81,6 +81,7 @@ jobs:
       env: 
         TF_WORKSPACE: dev
 
+
     - name: Terraform apply in prod
       if: github.ref == 'refs/head/master' && github.event.name == 'pull_request'
       run: terraform apply --auto-approve
