@@ -54,6 +54,7 @@ jobs:
       run: terraform workspace new prod
       continue-on-error: true
 
+
     - name: Validate terraform 
       id: validate 
       run: terraform validate -no-color
