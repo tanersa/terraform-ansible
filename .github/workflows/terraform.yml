@@ -69,6 +69,7 @@ jobs:
       run: terraform plan -no-color 
       continue-on-error: true 
       env:
+      
         TF_WORKSPACE: prod 
 
     - name: Terraform apply in dev
