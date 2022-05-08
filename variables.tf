@@ -11,7 +11,7 @@ variable "tenancy" {
 }
 
 variable "web_amis" {
-  type        = map(any)
+  type        = map
   description = "Used for nat instances"
   default = {
     us-east-1 = "ami-0ed9277fb7eb570c9"
@@ -32,7 +32,7 @@ variable "web_instance_count" {
 }
 
 variable "web_instance_tag" {
-  type        = map(any)
+  type        = map
   description = "instance names"
   default = {
     Name = "webserver"
