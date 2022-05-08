@@ -60,8 +60,33 @@ jobs:
       run: terraform validate -no-color
       continue-on-error: false
 
-
+    - name: Terraform plan in dev
+      if: github.ref == 'refs/head/terraform' && github.event.name == 'push'
+      run: terraform plan -no-color
+      continue-on-error: true
+      env: 
+        TF_WORKSPACE: dev
     
+    - name: Terraform plan in prod
+      if: github.ref == 'refs/head/master' && github.event.name == 'pull_request'
+      run: terraform plan -no-color
+      continue-on-error: true
+      env: 
+        TF_WORKSPACE: prod
+
+    - name: Terraform apply in dev
+      if: github.ref == 'refs/head/terraform' && github.event.name == 'push'
+      run: terraform apply --auto-approve
+      continue-on-error: true
+      env: 
+        TF_WORKSPACE: dev
+
+    - name: Terraform apply in prod
+      if: github.ref == 'refs/head/master' && github.event.name == 'pull_request'
+      run: terraform apply --auto-approve
+      continue-on-error: true
+      env: 
+        TF_WORKSPACE: prod
 
 
 
