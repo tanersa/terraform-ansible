@@ -52,7 +52,7 @@ resource "aws_security_group" "web_sg" {
 }
 
 resource "aws_key_pair" "terraform-eks-vpc" {
-  key_name   = "terraform-eks-vpc"
+  key_name   = "terraform-eks"
   public_key = file("scripts/web.pub")
 }
 
