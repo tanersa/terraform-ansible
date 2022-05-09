@@ -84,3 +84,10 @@ jobs:
       continue-on-error: true 
       env:
         TF_WORKSPACE: prod
+
+    - name: Terraform destroy in dev
+      if: github.ref == 'refs/heads/terraform' && github.event_name == 'push'
+      run: terraform destroy --auto-approve 
+      continue-on-error: true 
+      env:
+        TF_WORKSPACE: dev 
