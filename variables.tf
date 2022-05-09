@@ -41,7 +41,7 @@ variable "web_instance_tag" {
 
 variable "s3_bucket" {
   type    = string
-  default = "sharks-s3-bucket-1113333"
+  default = "sharks-s3-bucket-11133"
 }
 
 variable "subnet_cidr_block" {
