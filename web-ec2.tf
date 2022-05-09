@@ -11,7 +11,7 @@ resource "aws_instance" "web" {
   instance_type          = var.web_instance_type
   count                  = var.web_instance_count
   subnet_id              = local.pub_sub_ids[count.index]
-  iam_instance_profile   = aws_iam_instance_profile.s3_ec2_profile.name
+  iam_instance_profile   = aws_iam_instance_profile.s3_ec2_profiles.name
   vpc_security_group_ids = [aws_security_group.web_sg.id]
   user_data              = file("scripts/apache.sh")
   key_name               = aws_key_pair.terraform-eks-vpc.key_name
