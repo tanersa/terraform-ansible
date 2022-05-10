@@ -8,7 +8,7 @@ provider "aws" {
 # move terraform state file to S3 by default.
 terraform {
   backend "s3" {
-    bucket         = "terraformstatebuckets3"
+    bucket         = "terraformstatebucket3"
     key            = "terraform.tfstate"
     region         = "us-east-2"
     dynamodb_table = "terraformDynamoDB"
