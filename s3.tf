@@ -11,7 +11,6 @@ resource "aws_s3_bucket" "alb_access_logs" {
   bucket = "sharks-alb-access-logs-bucket"
   policy = data.template_file.sharks.rendered
   acl = "private"
-  region = var.aws_region
 
   tags = {
     Name        = "sharks-alb-access-logs-bucket"
