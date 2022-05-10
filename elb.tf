@@ -5,7 +5,7 @@ resource "aws_lb" "elb" {
   security_groups = [aws_security_group.elb_sg.id]
   
   access_logs {
-    bucket = aws_s3_bucket.alb_access_logs.name
+    bucket = "sharks-alb-access-logs-bucket"
     enabled = true
   }
 
