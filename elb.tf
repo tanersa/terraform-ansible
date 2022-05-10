@@ -3,7 +3,11 @@ resource "aws_lb" "elb" {
   name            = "sharks-elb"
   subnets         = local.pub_sub_ids
   security_groups = [aws_security_group.elb_sg.id]
-
+  
+  access_logs {
+    bucket = aws_s3_bucket.alb_access_logs.name
+    enabled = true
+  }
 
   # listener {
   #   instance_port     = 80
