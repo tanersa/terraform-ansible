@@ -3,6 +3,7 @@ resource "aws_lb" "elb" {
   name            = "sharks-elb"
   subnets         = local.pub_sub_ids
   security_groups = [aws_security_group.elb_sg.id]
+  load_balancer_type = "application"
   
   access_logs {
     bucket = "sharks-alb-access-logs-buckets"
