@@ -6,13 +6,13 @@ pipeline {
         PATH = "${PATH}:${getTerraformPath()}"
         }
     stages{
-        // stage('AWS credentials'){
-        //     steps{
-        //          withCredentials([string(credentialsId: 'AWS_ACCESS_KEY_ID', variable: 'AWS_ACCESS_KEY_ID'), string(credentialsId: 'AWS_SECRET_ACCESS_KEY', variable: 'AWS_SECRET_ACCESS_KEY')]) {
-        //              println 'Deploying....'
-        //          }
-        //     }
-        // }
+        stage( 'Create S3 bucket'){
+            steps{
+                script{
+                    createS3Bucket('sharks-test-terraform123')
+                }
+            }
+        }
         stage('Terraform init'){
             steps{
                 sh "terraform init"
@@ -24,4 +24,8 @@ pipeline {
 def getTerraformPath(){
     def tfHome = tool name: 'terraform', type: 'terraform'
     return tfHome
+}
+
+def createS3Bucket(bucketName){
+    sh returnStatus: true, script: 'aws s3 mb ${bucketName} --region=us-east2'
 }
