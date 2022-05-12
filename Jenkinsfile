@@ -1,16 +1,18 @@
+def awsCredentials = [[$class: 'AmazonWebServicesCredentialsBinding', credentialsId:'sharkscreds']]
+
 pipeline {
     agent any 
     environment {
         PATH = "${PATH}:${getTerraformPath()}"
         }
     stages{
-        stage('AWS credentials'){
-            steps{
-                 withCredentials([string(credentialsId: 'AWS_ACCESS_KEY_ID', variable: 'AWS_ACCESS_KEY_ID'), string(credentialsId: 'AWS_SECRET_ACCESS_KEY', variable: 'AWS_SECRET_ACCESS_KEY')]) {
-                     println 'Deploying....'
-                 }
-            }
-        }
+        // stage('AWS credentials'){
+        //     steps{
+        //          withCredentials([string(credentialsId: 'AWS_ACCESS_KEY_ID', variable: 'AWS_ACCESS_KEY_ID'), string(credentialsId: 'AWS_SECRET_ACCESS_KEY', variable: 'AWS_SECRET_ACCESS_KEY')]) {
+        //              println 'Deploying....'
+        //          }
+        //     }
+        // }
         stage('Terraform init'){
             steps{
                 sh "terraform init"
