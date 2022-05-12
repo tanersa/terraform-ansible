@@ -1,6 +1,10 @@
 ---
 - hosts: localhost
   tasks: 
+  - name: Install boto3/botocore
+    pip: 
+      name: boto3
+      state: present
   - name: Create S3 bucket
     s3_bucket: 
       name: sharks-terra-backend123
