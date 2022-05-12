@@ -4,7 +4,7 @@ provider "aws" {
 
 terraform {
   backend "s3" {
-      bucket = "sharks-terra-backend-files"
+      bucket = "sharks-terra-backend123"
       key = "terraform.tfstate"
       region = "us-east-2"
       dynamodb_table = "terraformDynamoDB"
