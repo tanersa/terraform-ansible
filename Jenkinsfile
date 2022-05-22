@@ -6,15 +6,9 @@ pipeline {
         PATH = "${PATH}:${getTerraformPath()}"
         }
     stages{
-        stage('test AWS credentials') {
+        stage('Create S3 Bucket with Ansible') {
             steps {
-                withAWS(credentials: 'sharkscreds', region: 'us-east-2') {
-                }
-            }
-        }
-        stage('Create S3 bucket with ansible'){
-            steps{
-                sh "ansible-playbook s3backend.yml"
+              sh "ansible-playbook s3backend.yml"            
             }
         }
         stage('Terraform init'){
@@ -25,7 +19,7 @@ pipeline {
 }
 
 def getTerraformPath(){
-    def tfHome = tool name: 'terraform', type: 'terraform'
+    def tfHome = tool name: 'terraform1.2', type: 'terraform'
     return tfHome
 }
 
