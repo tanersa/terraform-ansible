@@ -13,7 +13,7 @@ pipeline {
             steps{
               sh "terraform init"
             }
-        }
+        }   
     }   
 
 
@@ -22,4 +22,4 @@ def getTerraformPath(){
     return tfHome
 }
 
-}
+
