@@ -1,16 +1,16 @@
 resource "aws_db_instance" "sharks" {
-  allocated_storage    = 10
-  engine               = "mysql"
-  engine_version       = "5.7"
-  instance_class       = "db.t3.micro"
-  name                 = "db_name"
-  username             = "sharks"
-  password             = "Admin4321"
-  parameter_group_name = "default.mysql5.7"
-  skip_final_snapshot  = true
-  auto_minor_version_upgrade  = false
-  db_subnet_group_name = aws_db_subnet_group.sharks.id
-  vpc_security_group_ids = [aws_security_group.rds_sg.id]
+  allocated_storage          = 10
+  engine                     = "mysql"
+  engine_version             = "5.7"
+  instance_class             = "db.t3.micro"
+  name                       = "db_name"
+  username                   = "sharks"
+  password                   = "Admin4321"
+  parameter_group_name       = "default.mysql5.7"
+  skip_final_snapshot        = true
+  auto_minor_version_upgrade = false
+  db_subnet_group_name       = aws_db_subnet_group.sharks.id
+  vpc_security_group_ids     = [aws_security_group.rds_sg.id]
 }
 
 resource "aws_db_subnet_group" "sharks" {
@@ -29,15 +29,15 @@ resource "aws_security_group" "rds_sg" {
   vpc_id      = aws_vpc.terraform-eks-vpc.id
 
   ingress {
-    from_port   = 3306
-    to_port     = 3306
-    protocol    = "tcp"
+    from_port       = 3306
+    to_port         = 3306
+    protocol        = "tcp"
     security_groups = [aws_security_group.web_sg.id]
   }
 
   egress {
     from_port   = 0
-    to_port     = 0                                     
+    to_port     = 0
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
