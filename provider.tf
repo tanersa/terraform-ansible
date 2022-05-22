@@ -6,7 +6,7 @@ terraform {
   backend "s3" {
     bucket         = "sharks-terra-backend123"
     key            = "terraform.tfstate"
-    region         = "us-east-2"
+    region         = "us-east-1"
     dynamodb_table = "terraformDynamoDB"
   }
 }
