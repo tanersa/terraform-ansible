@@ -8,7 +8,7 @@
     app_env: dev
   tasks: 
   - name: Run terraform files
-    terraform: 
+    community.general.terraform:
       project_path: "./"
       state: "{{state}}"
       backend_config:
