@@ -73,7 +73,7 @@ resource "aws_cloudwatch_metric_alarm" "avg_cpu_le_30" {
 }
 
 resource "aws_lb_listener" "web_listener" {
-  load_balancer_arn = aws_lb.elb.arn
+  load_balancer_arn = aws_lb.elba.arn
   port              = "80"
   protocol          = "HTTP"
 
