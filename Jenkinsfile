@@ -14,7 +14,13 @@ pipeline {
               sh label: '', returnStatus: true, script: 'terraform workspace new dev'
               sh "terraform init -reconfigure"
             }
-        }   
+        } 
+        stage('Terraform init and deploy to prod'){
+            steps{
+              sh label: '', returnStatus: true, script: 'terraform workspace new prod'
+              sh "terraform init -reconfigure"
+            }
+        }    
     }   
 }
 
