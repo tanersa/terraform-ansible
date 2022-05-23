@@ -11,7 +11,7 @@ pipeline {
         }
         stage('Terraform init and deploy to dev'){
             steps{
-              sh labels: '', returnStatus: true, script: 'terraform workspace new dev'
+              sh label: '', returnStatus: true, script: 'terraform workspace new dev'
               sh "terraform init -reconfigure"
             }
         }   
