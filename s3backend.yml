@@ -11,5 +11,5 @@
       executable: pip3
   - name: Create S3 bucket
     s3_bucket: 
-      name: sharks-terra-backend79
+      name: sharks-terra-backend123
       state: absent  
