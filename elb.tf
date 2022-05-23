@@ -1,5 +1,5 @@
 # Create a new load balancer
-resource "aws_lb" "elb" {
+resource "aws_lb" "elba" {
   name               = "sharks-elb"
   subnets            = local.pub_sub_ids
   security_groups    = [aws_security_group.elb_sg.id]
