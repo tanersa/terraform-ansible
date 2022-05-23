@@ -6,7 +6,7 @@ resource "aws_lb" "elba" {
   load_balancer_type = "application"
 
   access_logs {
-    bucket  = "sharks-alb-access-logs-buckets"
+    bucket  = "sharks-alb-access-logs-buckets123"
     enabled = true
   }
 
