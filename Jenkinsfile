@@ -12,7 +12,7 @@ pipeline {
         stage('Terraform init and deploy to dev'){
             steps{
               sh "terraform workspace new dev"
-              sh "terraform init -force-copy"
+              sh "terraform init"
             }
         }   
     }   
